@@ -1,0 +1,29 @@
+## #ddev-generated
+services:
+  lighthouse:
+    image: pixboost/lighthouse-ci-cli
+    container_name: ddev-${DDEV_SITENAME}-lighthouse
+    labels:
+      com.ddev.site-name: ${DDEV_SITENAME}
+      com.ddev.approot: ${DDEV_APPROOT}
+    user: "${DDEV_UID}:${DDEV_GID}"
+    networks: [default, ddev_default]
+
+    environment:
+      - VIRTUAL_HOST=$DDEV_HOSTNAME
+
+    tty: true
+
+    volumes:
+      # Mount DDEV to allow commands
+      - ".:/mnt/ddev_config"
+      # Mount the config directory
+      - "./lighthouse:/home/lhci/config"
+      # Mount an output directory
+      - "./lighthouse:/home/lhci/.lighthouseci"
+
+    working_dir: /home/lhci
+
+    external_links:
+      # Resolve links via DDEV router
+      - "ddev-router:${DDEV_HOSTNAME}"

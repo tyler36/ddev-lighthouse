@@ -1,0 +1,8 @@
+#!/bin/bash
+#ddev-generated
+## Description: Run lhci CLI inside the lighthouse container
+## Usage: lhci [arguments]
+## Example: "ddev lhci autorun"
+## ExecRaw: true
+
+/home/lhci/lhci --config config/config.yaml "$@"

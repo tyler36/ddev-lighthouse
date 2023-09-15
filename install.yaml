@@ -1,0 +1,6 @@
+name: ddev-lighthouse-ci
+
+project_files:
+- docker-compose.lighthouse.yaml
+- lighthouse/config.yaml
+- commands/lighthouse/lhci

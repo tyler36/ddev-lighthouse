@@ -1,0 +1,9 @@
+## #ddev-generated
+ci:
+  collect:
+    additive: false
+    url:
+      - https://web
+    settings:
+      chrome-flags: "--disable-cpu --no-sandbox --headless --ignore-certificate-errors"
+      # https://github.com/GoogleChrome/lighthouse/blob/8f500e00243e07ef0a80b39334bedcc8ddc8d3d0/lighthouse-core/config/constants.js#L19-L26
